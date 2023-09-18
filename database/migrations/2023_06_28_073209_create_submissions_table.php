@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('submissions', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->enum('role', ['admin', 'mahasiswa', 'dosen'])->default('mahasiswa');
-            $table->rememberToken();
+            $table->foreignId('id_tugas')->constrained('tugas')->onDelete('cascade');
+            $table->foreignId('id_mahasiswa')->constrained('users')->onDelete('cascade');
+            $table->string('attachment')->nullable(); // untuk file
+            $table->text('komentar')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('submissions');
     }
 };

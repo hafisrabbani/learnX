@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('feedbacks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->enum('role', ['admin', 'mahasiswa', 'dosen'])->default('mahasiswa');
-            $table->rememberToken();
+            $table->foreignId('mahasiswa_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('materi_id')->constrained('materis')->onDelete('cascade');
+            $table->integer('point');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('feedbacks');
     }
 };

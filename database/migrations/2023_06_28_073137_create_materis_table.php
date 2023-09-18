@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('materis', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->enum('role', ['admin', 'mahasiswa', 'dosen'])->default('mahasiswa');
-            $table->rememberToken();
+            $table->string('judul_materi');
+            $table->foreignId('id_matkul')->constrained('mata_kuliahs')->onDelete('cascade');
+            $table->text('deskripsi')->nullable();
+            $table->string('attachment')->nullable(); // untuk file
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('materis');
     }
 };
