@@ -1,22 +1,29 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
+// Authentication Routes (Login, Logout)
+Route::controller(AuthController::class)->group(function () {
+    Route::get('login', 'login')->name('login');
+    Route::post('login', 'loginCheck')->name('login.check');
+    Route::get('logout', 'logout')->name('logout');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('dashboard', function () {
+        return view('pages.dashboard.dashboard');
+    })->name('dashboard');
+});
+
+// Mahasiswa Routes (Tugas, Materi, Virtual Lab, Fitur)
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
 });
-
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
