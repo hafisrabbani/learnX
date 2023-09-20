@@ -63,15 +63,15 @@
             </a>
         </li>
         @php $role = Auth::user()->role; @endphp
-        @if($role == 'admin')
-        @include('layouts.sidebar.admin')
+        @if ($role == 'admin')
+            @include('layouts.sidebar.admin')
         @elseif($role == 'dosen')
-        @include('layouts.sidebar.dosen')
+            @include('layouts.sidebar.dosen')
         @elseif($role == 'mahasiswa')
-        @include('layouts.sidebar.mahasiswa')
+            @include('layouts.sidebar.mahasiswa')
         @endif
-        <li class="sidebar-item">
-            <a href=" {{ route('logout') }}" class='sidebar-link'>
+        <li class="menu-item">
+            <a href=" {{ route('logout') }}" class='menu-link'>
                 <i class="fas fa-sign-out-alt"></i>
                 <span>Log Out</span>
             </a>

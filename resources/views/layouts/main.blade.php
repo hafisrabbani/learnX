@@ -165,7 +165,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login-basic.html">
+                      <a class="dropdown-item" href="{{ route('logout') }}">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
@@ -185,10 +185,7 @@
 
             <div class="container-fluid flex-grow-1 container-p-y">
               <!-- Layout Demo -->
-              <div class="layout-demo-wrapper">
-
                 @yield('page-content')
-              </div>
               <!--/ Layout Demo -->
             </div>
             <!-- / Content -->
@@ -199,9 +196,9 @@
                 <div class="mb-2 mb-md-0">
                   ©
                   <script>
-                    document.write(new Date().getFullYear());
-                </script>
-                  , made with ❤️ by
+                      document.write(new Date().getFullYear());
+                  </script>
+                  , made with ❤️ by learnx team
                   <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
                 </div>
                 <div>
