@@ -32,6 +32,11 @@
                                         <i class="fa fa-file-pdf"></i>
                                     </button>
                                 </a>
+                                <a href="{{ env('CONFERENCE_URL') }}/join/room-{{ $mataKuliah->id }}" target="_blank">
+                                    <button type="button" class="btn btn-sm btn-success">
+                                        <i class="fa fa-video"></i>
+                                    </button>
+                                </a>
                                 <a class="btn btn-warning btn-sm" type="button"
                                     href="{{ route('mahasiswa.mata-kuliah.leaderboard', $mataKuliah->id) }}">
                                     <i class="bi bi-award-fill"></i>
