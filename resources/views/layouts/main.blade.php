@@ -27,7 +27,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Fluid - Layouts | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>@yield('_title') | learnX</title>
 
     <meta name="description" content="" />
 
@@ -61,6 +61,8 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
+
+    @yield('css')
   </head>
 
   <body>
@@ -242,5 +244,6 @@
     <script src="../assets/vendor/js/menu.js"></script>
     <script src="../assets/js/main.js"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    @stack('js')
   </body>
 </html>

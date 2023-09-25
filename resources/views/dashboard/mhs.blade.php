@@ -54,7 +54,7 @@
     </div>
 </section>
 <section>
-    <div class="row align-items-center">
+    <div class="row align-items-center mt-3">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
@@ -73,21 +73,22 @@
             </div>
         </div>
     </div>
+
 </section>
 
 <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js "></script>
 <script>
     const data = {
         labels: [
-            @foreach($matkul as $m)
-            '{{ $m->matkul->nama_mk }}',
+            @foreach ($matkul as $m)
+                '{{ $m->matkul->nama_mk }}',
             @endforeach
         ],
         datasets: [{
             label: 'Progress Belajarmu',
             data: [
-                @foreach($matkul as $m)
-                '{{ $m->point }}',
+                @foreach ($matkul as $m)
+                    '{{ $m->point }}',
                 @endforeach
             ],
             backgroundColor: [
@@ -114,5 +115,4 @@
         document.getElementById('progress-belajar'),
         config
     );
-
 </script>
