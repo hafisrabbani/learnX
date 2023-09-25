@@ -10,9 +10,9 @@
         <span>Mata Kuliah</span>
     </a>
 </li>
-<li class="menu-item {{ request()->is('admin/enrollment') ? 'active' : '' }}">
-    <a href="{{ route('enrollment.index') }}" class='menu-link'>
+<li class="menu-item {{ request()->is('admin/announcement') ? 'active' : '' }}">
+    <a href="{{ route('announcement.index') }}" class='menu-link'>
         <i class="menu-icon bi bi-bookmark-check"></i>
-        <span>Enrollment</span>
+        <span>Announcement</span>
     </a>
 </li>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AbsenceController;
+use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\MataKuliahController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
@@ -65,6 +66,16 @@ Route::middleware('auth')->group(function () {
                 Route::get('/edit/{id}', 'edit')->name('edit');
                 Route::post('/update/{id}', 'update')->name('update');
                 Route::delete('/delete/{id}', 'delete')->name('delete');
+            });
+
+        Route::controller(AnnouncementController::class)
+            ->prefix('announcement')
+            ->name('announcement.')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/show', 'show')->name('show');
+                Route::post('/create', 'create')->name('create');
+                Route::post('/delete', 'delete')->name('delete');
             });
     });
 

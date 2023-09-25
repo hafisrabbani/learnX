@@ -24,7 +24,6 @@ class EnrollmentController extends Controller
         $mahasiswas = $this->userRepository->getBy(['role' => 'mahasiswa']);
         $mataKuliahs = $this->mataKuliahRepository->all();
         $enrollments = $this->enrollmentRepository->all();
-        // dd($enrollments);
         return view('admin.enrollments.index', compact('mahasiswas', 'mataKuliahs', 'enrollments'));
     }
 
