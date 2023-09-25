@@ -32,7 +32,7 @@
                                         <i class="fa fa-file-pdf"></i>
                                     </button>
                                 </a>
-                                <a href="{{ env('CONFERENCE_URL') }}/join/room-{{ $mataKuliah->id }}" target="_blank">
+                                <a href="{{ env('CONFERENCE_URL') }}/join/room-{{ base64_encode($mataKuliah->id) }}">
                                     <button type="button" class="btn btn-sm btn-success">
                                         <i class="fa fa-video"></i>
                                     </button>

@@ -30,8 +30,13 @@
                                     </button>
                                 </a>
                                 <a href="{{route('dosen.materi.index', $mataKuliah->id)}}">
-                                    <button type="button" class="btn btn-sm btn-danger text-white"><i
-                                            class="fas fa-book text-white"></i>
+                                    <button type="button" class="btn btn-sm btn-danger text-white">
+                                        <i class="fas fa-book text-white"></i>
+                                </a>
+                                <a href="{{ env('CONFERENCE_URL') }}/join/room-{{ base64_encode($mataKuliah->id) }}">
+                                    <button type="button" class="btn btn-sm btn-success">
+                                        <i class="fa fa-video"></i>
+                                    </button>
                                 </a>
                         </tr>
                         @endforeach
