@@ -27,7 +27,7 @@
                         </div>
                         <div class="col-4">
                             <div class="bg-success text-center text-white py-3 rounded">
-                                <i class="bi bi-file-earmark-pdf" style="font-size: 2rem;font-weight: bold;"></i>
+                                <i class="fas fa-file-pdf" style="font-size: 2rem;font-weight: bold;"></i>
                             </div>
                         </div>
                     </div>
@@ -59,13 +59,12 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="fw-bold">Rekomendasi :</h5>
-                    <p class="text-muted
+                    <p class="text-secondary
                     ">{!! nl2br($personalisasi) !!}</p>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
-            <!-- chart -->
             <div class="card">
                 <div class="card-body">
                     <canvas id="progress-belajar"></canvas>
@@ -99,13 +98,13 @@
             ]
         }],
     }
-    const config = {
+    const configs = {
         type: 'radar',
         data: data,
         options: {
             elements: {
                 line: {
-                    borderWidth: 3
+                    borderWidth: 2
                 }
             }
         },
@@ -113,6 +112,6 @@
 
     var myChart = new Chart(
         document.getElementById('progress-belajar'),
-        config
+        configs
     );
 </script>

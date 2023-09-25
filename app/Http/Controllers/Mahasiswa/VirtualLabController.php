@@ -35,16 +35,6 @@ class VirtualLabController extends Controller
                 'url' => route('mahasiswa.virtual-lab.python-compiler'),
                 'icon' => 'fab fa-python',
             ],
-            'Circuit' => [
-                'title' => 'Circuit Simulation',
-                'url' => route('mahasiswa.virtual-lab.circuits-simulate'),
-                'icon' => 'fas fa-microchip',
-            ],
-            'Capacitor' => [
-                'title' => 'Capacitor Simulation',
-                'url' => route('mahasiswa.virtual-lab.capacitor-simulate'),
-                'icon' => 'fas fa-charging-station',
-            ],
         ];
     }
 

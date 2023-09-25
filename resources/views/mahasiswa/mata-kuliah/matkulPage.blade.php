@@ -29,7 +29,7 @@
                                 </a>
                                 <a href="{{ route('mahasiswa.materi.index', $mataKuliah->id) }}">
                                     <button type="button" class="btn btn-sm btn-danger">
-                                        <i class="bi bi-file-earmark-pdf"></i>
+                                        <i class="fa fa-file-pdf"></i>
                                     </button>
                                 </a>
                                 <a class="btn btn-warning btn-sm" type="button"
@@ -44,5 +44,6 @@
                 </table>
             </div>
         </div>
+    </div>
 </section>
 @endsection
