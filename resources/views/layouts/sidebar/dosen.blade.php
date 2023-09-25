@@ -11,3 +11,10 @@
         <span>Forums</span>
     </a>
 </li>
+
+<li class="menu-item {{ str_starts_with(Route::current()->uri, 'absences') ? 'active' : '' }}">
+    <a href="{{ route('dosen.absences.index') }}" class='menu-link'>
+        <i class="menu-icon fas fa-comments"></i>
+        <span>Absences</span>
+    </a>
+</li>
