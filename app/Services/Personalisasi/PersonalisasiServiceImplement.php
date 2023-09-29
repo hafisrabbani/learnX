@@ -61,4 +61,31 @@ class PersonalisasiServiceImplement extends Service implements PersonalisasiServ
             return $e->getMessage();
         }
     }
+
+    public function generateTTS($data)
+    {
+        $client = new Client();
+        try {
+            $response = $client->request('POST', 'https://api.prosa.ai/v2/speech/tts', [
+                'json' => [
+                    "config" => [
+                        "model" => "tts-dimas-formal",
+                        "wait" => false,
+                        "audio_format" => "opus"
+                    ],
+                    "request" => [
+                        "text" => $data
+                    ]
+                ],
+                'headers' => [
+                    'X-Api-Key' => env('API_KEY_PROSA')
+                ],
+                'verify' => false
+            ]);
+            $response = json_decode($response->getBody()->getContents(), true);
+            return $response;
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }

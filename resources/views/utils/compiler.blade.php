@@ -2,9 +2,14 @@
 <html>
 
 <head>
-    <title>S-ViC PHP Compiler</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/main/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/main/app-dark.css') }}">
+    <title>LearnX PHP Compiler</title>
+    <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/boxicons.css') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/css/theme-default.css') }}"
+        class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.css">
     <style>
         body {
@@ -33,7 +38,7 @@
 
 <body>
     <h2 class="text-center">
-        S-ViC PHP Compiler
+        LearnX PHP Compiler
     </h2>
     <div class="container">
         <div class="row">

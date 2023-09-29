@@ -31,7 +31,7 @@
                                 </div>
 
                                 <a href="{{ asset('storage/materi/' . $materi['attachment']) }}" target="_blank"
-                                    class="btn btn-sm btn-warning"><i class="bi bi-file-earmark-pdf"></i></a>
+                                    class="btn btn-sm btn-warning"><i class="fas fa-file-download"></i></a>
 
                                 @if (!$materi['status'])
                                 <button type="button" class="btn btn-sm btn-primary"
@@ -43,7 +43,8 @@
                                 @endif
                                 <a href="{{ route('mahasiswa.personalisasi.quiz', $materi['id']) }}"
                                     class="btn btn-sm btn-info"><i class="fas fa-question"></i></a>
-
+                                <a href="{{ route('utils.materi-audio', $materi['id']) }}"
+                                    class="btn btn-sm btn-success"><i class="fas fa-play"></i></a>
                             </div>
                         </div>
                     </div>

@@ -185,6 +185,7 @@ Route::prefix('/utils')->group(function () {
             Route::post('php-compiler', 'phpCompiler')->name('php-compiler');
             Route::post('python-compiler', 'pythonCompiler')->name('python-compiler');
             Route::get('redirect', 'redirectExternal')->name('redirect');
+            Route::get('/materi-audio/{id}', 'getMateriAudio')->name('materi-audio');
         });
     Route::prefix('vlab')->name('vlab.')->group(function () {
         Route::view('terminal', 'utils.terminal')->name('terminal');

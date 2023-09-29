@@ -56,6 +56,23 @@ class FileUploadServiceImplement extends Service implements FileUploadService
         return $response;
     }
 
+    public function extractText($file)
+    {
+        $client = new Client();
+        $response = $client->request('POST', 'http://localhost:5000/pdf-to-text', [
+            'multipart' => [
+                [
+                    'name'     => 'file',
+                    'contents' => fopen($file->getPathname(), 'r'),
+                    'filename' => $file->getClientOriginalName()
+                ],
+            ]
+        ]);
+
+        $response = json_decode($response->getBody()->getContents(), true);
+        return $response;
+    }
+
     public function ckeditorUpload($file, $request)
     {
         $path = $this->uploadLocal($file, 'ckeditor');

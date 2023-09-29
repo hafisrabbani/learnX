@@ -10,4 +10,5 @@ interface FileUploadService extends BaseService
     public function uploadToAPI($file, $destination = 'tugas');
     public function ckeditorUpload($file, $request);
     public function download($filename, $type = 'tugas');
+    public function extractText($filename);
 }

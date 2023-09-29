@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Utils;
 
 use App\Http\Controllers\Controller;
+use App\Models\TTS;
 use Illuminate\Http\Request;
 use App\Services\FileUpload\FileUploadService;
 use GuzzleHttp\Client;
@@ -116,5 +117,34 @@ class UtilsController extends Controller
         ]);
 
         return redirect()->away($request->url);
+    }
+
+    public function getMateriAudio($id)
+    {
+        $findMateri = TTS::findOrfail($id);
+        $client = new Client();
+
+        try {
+            $request = $client->request('GET', 'https://api.prosa.ai/v2/speech/tts/' . $findMateri->job_id, [
+                'headers' => [
+                    'X-Api-Key' => env('API_KEY_PROSA')
+                ],
+                'verify' => false
+            ]);
+
+            $response = json_decode($request->getBody()->getContents(), true);
+            // return the audio from base64 to binary
+            $audio = base64_decode($response['result']['data']);
+            // play on browser
+            return response($audio, 200, [
+                'Content-Type' => 'audio/mpeg',
+                'Content-Disposition' => 'inline; filename="audio.mp3"'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage()
+            ]);
+        }
     }
 }

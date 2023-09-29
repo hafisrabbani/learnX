@@ -5,7 +5,8 @@
     <title>API Testing Tool</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -83,7 +84,7 @@
             <br>
             <small>NOTE: This tool is for testing purposes only. Do not use this tool in production.</small>
             <br>
-            <small class="text-muted">Build by threeMusketeers from <a href="https://pens.ac.id">PENS</a></small>
+            <small class="text-muted">Build by RodahSchool from <a href="https://pens.ac.id">PENS</a></small>
         </p>
         <div id="request">
             <input type="text" id="url" placeholder="Enter URL..." value="https://api.example.com">
@@ -116,8 +117,8 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('#send-btn').on('click', function() {
+        $(document).ready(function () {
+            $('#send-btn').on('click', function () {
                 var url = $('#url').val();
                 var method = $('#method').val();
                 var headers = $('#headers').val();
@@ -135,19 +136,19 @@
                     type: request.method,
                     headers: request.headers,
                     data: request.body,
-                    success: function(data) {
-                        setInterval(function() {
+                    success: function (data) {
+                        setInterval(function () {
                             swal.close();
                         }, 500)
                         $('#response').val(JSON.stringify(data, null, 4));
                     },
-                    error: function(error) {
-                        setInterval(function() {
+                    error: function (error) {
+                        setInterval(function () {
                             swal.close();
                         }, 500)
                         $('#response').val(JSON.stringify(error, null, 4));
                     },
-                    beforeSend: function() {
+                    beforeSend: function () {
                         swal({
                             title: 'Loading...',
                             text: 'Please wait',

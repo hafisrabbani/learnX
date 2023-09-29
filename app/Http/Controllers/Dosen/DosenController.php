@@ -9,6 +9,7 @@ use App\Services\Tugas\TugasService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Utils\UtilsController;
 use App\Models\Submission;
+use App\Models\TTS;
 use App\Models\Tugas;
 use App\Repositories\Enrollment\EnrollmentRepository;
 use App\Repositories\Materi\MateriRepository;
@@ -194,11 +195,22 @@ class DosenController extends Controller
             'id_matkul.required' => 'id matkul tidak ada',
 
         ]);
+        $transcript = $this->fileUploadService->extractText(request()->file('files'));
+        $generateTTS = $this->personalisasiService->generateTTS($transcript['text']);
         $uploadFile = $this->fileUploadService->uploadToAPI(request()->file('files'), 'modul');
-        // dd($uploadFile);
         $data['files'] = $uploadFile['filename'];
-        // dd($data);
         if ($create = $this->materiService->create($data)) {
+            $insertBatchTTS = TTS::create([
+                'materi_id' => $create->id,
+                'transcript' => $transcript['text'],
+                'job_id' => $generateTTS['job_id'],
+            ]);
+            if (!$insertBatchTTS) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Gagal Menambahkan TTS'
+                ], 400);
+            }
             $createQuiz = $this->personalisasiService->createQuizFromModule($create->id);
             if (!$createQuiz) {
                 return response()->json([
