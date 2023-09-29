@@ -188,6 +188,7 @@ class DosenController extends Controller
             'deskripsi' => 'required|string',
             'files' => 'required|mimes:pdf,docx,doc,xlsx,xls,ppt,pptx,txt,zip,rar,png,jpg,jpeg|max:2048',
             'id_matkul' => 'required',
+            'additional_reference' => 'string'
         ], [
             'judul_materi.required' => 'judul materi harus diisi',
             'deskripsi.required' => 'deskripsi harus diisi',
@@ -261,6 +262,7 @@ class DosenController extends Controller
             'deskripsi' => 'required|string',
             'files' => 'nullable|mimes:pdf,docx,doc,xlsx,xls,ppt,pptx,txt,zip,rar,png,jpg,jpeg|max:2048',
             'id_matkul' => 'required',
+            'additional_reference' => 'string'
         ], [
             'judul_materi.required' => 'judul materi harus diisi',
             'deskripsi.required' => 'deskripsi harus diisi',

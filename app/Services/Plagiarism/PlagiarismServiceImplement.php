@@ -24,7 +24,7 @@ class PlagiarismServiceImplement extends Service implements PlagiarismService
     {
         $client = new Client();
         try {
-            $request = $client->request('POST', 'http://localhost:5000/compare', [
+            $request = $client->request('POST', env('INTERNAL_API_URL') . '/compare', [
                 'json' => [
                     'file_name' => $file,
                     'compare_files' => $files,

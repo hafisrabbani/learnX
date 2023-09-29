@@ -38,7 +38,7 @@ class FileUploadServiceImplement extends Service implements FileUploadService
     public function uploadToAPI($file, $destination = 'tugas')
     {
         $client = new Client();
-        $response = $client->request('POST', 'http://localhost:5000/upload', [
+        $response = $client->request('POST', env('INTERNAL_API_URL') . '/upload', [
             'multipart' => [
                 [
                     'name'     => 'file',
@@ -59,7 +59,7 @@ class FileUploadServiceImplement extends Service implements FileUploadService
     public function extractText($file)
     {
         $client = new Client();
-        $response = $client->request('POST', 'http://localhost:5000/pdf-to-text', [
+        $response = $client->request('POST', env('INTERNAL_API_URL') . '/pdf-to-text', [
             'multipart' => [
                 [
                     'name'     => 'file',
@@ -88,7 +88,7 @@ class FileUploadServiceImplement extends Service implements FileUploadService
     {
         $client = new Client();
         try {
-            $response = $client->request('POST', 'http://127.0.0.1:5000/download', [
+            $response = $client->request('POST', env('INTERNAL_API_URL') . '/download', [
                 'json' => [
                     'file_name' => $filename,
                     'type' => $type

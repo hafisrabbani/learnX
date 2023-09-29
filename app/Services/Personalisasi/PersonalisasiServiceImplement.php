@@ -17,7 +17,7 @@ class PersonalisasiServiceImplement extends Service implements PersonalisasiServ
     {
         $client = new Client();
         try {
-            $response = $client->request('GET', 'http://localhost:5000/analyzer/quiz', [
+            $response = $client->request('GET', env('INTERNAL_API_URL') . '/analyzer/quiz', [
                 'query' => [
                     'id_analyzer' => $id_analyzer,
                     'id_user' => $id_user
@@ -34,7 +34,7 @@ class PersonalisasiServiceImplement extends Service implements PersonalisasiServ
     {
         $client = new Client();
         try {
-            $response = $client->request('POST', 'http://localhost:5000/generate-quiz', [
+            $response = $client->request('POST', env('INTERNAL_API_URL') . '/generate-quiz', [
                 'json' => [
                     'id_module' => $id_module
                 ]
@@ -50,7 +50,7 @@ class PersonalisasiServiceImplement extends Service implements PersonalisasiServ
     {
         $client = new Client();
         try {
-            $response = $client->request('GET', 'http://localhost:5000/personalisasi', [
+            $response = $client->request('GET', env('INTERNAL_API_URL') . '/personalisasi', [
                 'query' => [
                     'id_user' => $id_user
                 ]

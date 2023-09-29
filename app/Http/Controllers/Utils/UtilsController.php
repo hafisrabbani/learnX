@@ -90,7 +90,7 @@ class UtilsController extends Controller
     {
         $client = new Client();
         try {
-            $request = $client->request('POST', 'http://localhost:5000/cloud-compute', [
+            $request = $client->request('POST', 'env('INTERNAL_API_URL')/cloud-compute', [
                 'json' => [
                     'code' => $request->code,
                 ]

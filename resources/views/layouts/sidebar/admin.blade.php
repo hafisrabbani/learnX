@@ -14,5 +14,9 @@
     <a href="{{ route('enrollment.index') }}" class='menu-link'>
         <i class="menu-icon bi bi-bookmark-check text-primary"></i>
         <span>Enrollment</span>
+<li class="menu-item {{ request()->is('admin/announcement') ? 'active' : '' }}">
+    <a href="{{ route('announcement.index') }}" class='menu-link'>
+        <i class="menu-icon bi bi-bookmark-check"></i>
+        <span>Announcement</span>
     </a>
 </li>

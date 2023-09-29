@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AbsenceController;
+use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\MataKuliahController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
@@ -65,6 +67,16 @@ Route::middleware('auth')->group(function () {
                 Route::post('/update/{id}', 'update')->name('update');
                 Route::delete('/delete/{id}', 'delete')->name('delete');
             });
+
+        Route::controller(AnnouncementController::class)
+            ->prefix('announcement')
+            ->name('announcement.')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/show', 'show')->name('show');
+                Route::post('/create', 'create')->name('create');
+                Route::post('/delete', 'delete')->name('delete');
+            });
     });
 
     // Dosen Area
@@ -103,6 +115,15 @@ Route::middleware('auth')->group(function () {
                 Route::post('/create//{id_mahasiswa}', 'createNilai')->name("createNilai");
                 Route::get('/edit/{id_mahasiswa}', 'editNilai')->name("editNilai");
                 Route::post('/update/{id_mahasiswa}', 'updateNilai')->name("updateNilai");
+            });
+
+        Route::controller(AbsenceController::class)
+            ->prefix('absences')
+            ->name('absences.')->group(function () {
+                Route::get('/', 'index')->name("index");
+                Route::post('/store', 'store')->name("store");
+                Route::post('/delete', 'delete')->name("delete");
+                Route::get('/getAbsenseDetail', 'getAbsenseDetail')->name('getAbsenseDetail');
             });
     });
 
